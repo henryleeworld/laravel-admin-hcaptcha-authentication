@@ -1,4 +1,4 @@
-# Laravel 10 後臺管理 hCaptcha 登入
+# Laravel 11 後臺管理 hCaptcha 登入
 
 hCaptcha 是一個重視隱私性的驗證碼服務，不會出售個人資料，僅收集最低限度需要的資料，也會透明地對外揭露資料收集和使用的方法，而且支援隱私通行證，減少使用者需要驗證的次數，使得整體驗證體驗更好，hCaptcha 還提供完善的無障礙功能，讓視障人士也能輕鬆地進行驗證，更重要的是，hCaptcha 能夠在 Google 被封鎖的地區運作，使用的機器學習技術，能夠在保護隱私消耗少量資料的前提下，精確辨識出典型的機器人行為。
 
@@ -35,8 +35,8 @@ $ npm run build
 ----
 
 ## 畫面截圖
-![](https://i.imgur.com/mHej7Wt.png)
+![](https://i.imgur.com/jLD7xve.png)
 > hCaptcha 服務使用機器學習技術辨識典型的機器人行為
 
-![](https://i.imgur.com/ltTsBns.png)
+![](https://i.imgur.com/Shcg32Q.png)
 > 可防止自動化軟體在網站上進行濫用活動

@@ -2,26 +2,26 @@
 
 namespace App\Rules;
 
-use App\Services\HCaptchaService;
+use App\Http\Integrations\HCaptcha\HCaptchaConnector;
 use Illuminate\Contracts\Validation\Rule;
 
 class HCaptchaRule implements Rule
 {
-    protected $hCaptchaService;
+    protected $hCaptchaConnector;
 
     protected array $messages = [];
 
     /**
      * HCaptcha.
      */
-    public function __construct(HCaptchaService $hCaptchaService)
+    public function __construct(HCaptchaConnector $hCaptchaConnector)
     {
-        $this->hCaptchaService = $hCaptchaService;
+        $this->hCaptchaConnector = $hCaptchaConnector;
     }
 
     public function passes($attribute, $value)
     {
-        return $this->hCaptchaService->verifyResponse($value, request()->ip());
+        return $this->hCaptchaConnector->verifyResponse($value, request()->ip());
     }
 
     public function message()

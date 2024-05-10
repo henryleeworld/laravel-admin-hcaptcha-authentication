@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Services;
+namespace App\Http\Integrations\HCaptcha;
 
 use GuzzleHttp\Client;
 use Symfony\Component\HttpFoundation\Request;
 
-class HCaptchaService
+class HCaptchaConnector
 {
     const VERIFY_URL = 'https://hcaptcha.com/siteverify';
 
@@ -14,35 +14,35 @@ class HCaptchaService
      *
      * @var string
      */
-    protected $secret;
+    protected string $secret;
 
     /**
      * The hCaptcha sitekey key.
      *
      * @var string
      */
-    protected $sitekey;
+    protected string $sitekey;
 
     /**
      * @var \GuzzleHttp\Client
      */
-    protected $http;
+    protected Client $http;
 
     /**
      * The cached verified responses.
      *
      * @var array
      */
-    protected $verifiedResponses = [];
+    protected array $verifiedResponses = [];
 
     /**
      * HCaptcha.
      */
     public function __construct()
     {
-        $this->secret = config('hcaptcha.secret');
-        $this->sitekey = config('hcaptcha.sitekey');
-        $this->http = new Client(config('hcaptcha.options'));
+        $this->secret = config('services.hcaptcha.secret');
+        $this->sitekey = config('services.hcaptcha.sitekey');
+        $this->http = new Client(config('services.hcaptcha.options'));
     }
 
     /**
