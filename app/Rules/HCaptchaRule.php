@@ -12,19 +12,28 @@ class HCaptchaRule implements Rule
     protected array $messages = [];
 
     /**
-     * HCaptcha.
+     * Constructor.
      */
     public function __construct(HCaptchaConnector $hCaptchaConnector)
     {
         $this->hCaptchaConnector = $hCaptchaConnector;
     }
 
-    public function passes($attribute, $value)
+    /**
+     * Determine if the validation rule passes.
+     *
+     * @param  string  $attribute
+     * @param  mixed  $value
+     */
+    public function passes($attribute, $value): bool
     {
         return $this->hCaptchaConnector->verifyResponse($value, request()->ip());
     }
 
-    public function message()
+    /**
+     * Get the validation error message.
+     */
+    public function message(): string
     {
         return $this->messages;
     }

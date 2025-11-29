@@ -50,10 +50,8 @@ class HCaptchaConnector
      *
      * @param string $response
      * @param string $clientIp
-     *
-     * @return bool
      */
-    public function verifyResponse($response, $clientIp = null)
+    public function verifyResponse($response, $clientIp = null): bool
     {
         if (empty($response)) {
             return false;
@@ -84,10 +82,8 @@ class HCaptchaConnector
      * Send verify request.
      *
      * @param array $query
-     *
-     * @return array
      */
-    protected function sendRequestVerify(array $query = [])
+    protected function sendRequestVerify(array $query = []): array
     {
         $response = $this->http->request('POST', static::VERIFY_URL, [
             'form_params' => $query,
