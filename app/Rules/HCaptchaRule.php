@@ -7,16 +7,13 @@ use Illuminate\Contracts\Validation\Rule;
 
 class HCaptchaRule implements Rule
 {
-    protected $hCaptchaConnector;
-
     protected array $messages = [];
 
     /**
      * Constructor.
      */
-    public function __construct(HCaptchaConnector $hCaptchaConnector)
+    public function __construct(protected HCaptchaConnector $hCaptchaConnector)
     {
-        $this->hCaptchaConnector = $hCaptchaConnector;
     }
 
     /**
